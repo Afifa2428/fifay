@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Shop the latest products from our Instagram-integrated store">
+    <title>Retail Instagram Store</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <nav>
+            <div class="logo">MyShop</div>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Shop</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>New Arrivals</h1>
+            <p>Shop the latest collection</p>
+            <a href="#" class="cta-button">Shop Now</a>
+        </div>
+    </section>
+
+    <!-- Instagram Feed Section -->
+    <section class="instagram-feed">
+        <h2>Instagram Shop</h2>
+        <div id="instafeed"></div>
+    </section>
+
+    <!-- Product Section -->
+    <section class="product-section">
+        <h2>Featured Products</h2>
+        <div class="product-grid">
+            <!-- Sample Product Card -->
+            <div class="product-card">
+                <img src="images/product1.jpg" alt="Product 1">
+                <h3>Product Name</h3>
+                <p>$49.99</p>
+                <a href="#" class="product-button">Buy Now</a>
+            </div>
+            <!-- Add more product cards here -->
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="footer-content">
+            <p>Follow us on Instagram @myshop</p>
+            <p>&copy; 2024 MyShop. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/instafeed.js@2"></script>
+    <script src="scripts.js"></script>
+</body>
+</html>
+
+/* Reset some default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+/* Header Styles */
+header {
+    background: #222;
+    color: white;
+    padding: 20px 0;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+nav ul li {
+    margin-left: 20px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2em;
+}
+
+.logo {
+    font-size: 1.8em;
+    font-weight: bold;
+}
+
+/* Hero Section */
+.hero {
+    background: url('images/hero.jpg') center/cover no-repeat;
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-content {
+    text-align: center;
+    color: white;
+}
+
+.hero-content h1 {
+    font-size: 4em;
+    margin-bottom: 20px;
+}
+
+.cta-button {
+    background: #ff6363;
+    padding: 10px 20px;
+    color: white;
+    text-decoration: none;
+    font-size: 1.2em;
+    border-radius: 5px;
+}
+
+/* Instagram Feed */
+.instagram-feed {
+    padding: 50px 0;
+    text-align: center;
+    background-color: #fff;
+}
+
+.instagram-feed h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+#instafeed {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+#instafeed img {
+    width: 200px;
+    height: 200px;
+    margin: 10px;
+    object-fit: cover;
+}
+
+/* Product Section */
+.product-section {
+    padding: 50px 0;
+    text-align: center;
+    background-color: #f9f9f9;
+}
+
+.product-grid {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.product-card {
+    background: white;
+    margin: 15px;
+    padding: 20px;
+    width: 200px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.product-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.product-card h3 {
+    margin: 10px 0;
+    font-size: 1.2em;
+}
+
+.product-button {
+    background: #ff6363;
+    color: white;
+    padding: 10px 15px;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+/* Footer */
+footer {
+    background: #222;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+// Instafeed.js: Fetch Instagram Feed (replace ACCESS_TOKEN with your own)
+var feed = new Instafeed({
+    accessToken: 'YOUR_INSTAGRAM_ACCESS_TOKEN',
+    limit: 6,
+    template: '<a href="{{link}}" target="_blank"><img title="{{caption}}" src="{{image}}" /></a>'
+});
+feed.run();
+
